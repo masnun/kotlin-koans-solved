@@ -14,12 +14,11 @@ fun todoTask3(): Nothing = TODO(
     documentation = doc2(),
     references = { name: String -> JavaCode3().foo(name); foo(name) })
 
-fun foo(name: String): String = todoTask3()
+fun foo(name: String, number: Int = 2, boolean: Boolean = false): String {
+    return JavaCode3().foo(name, number, boolean);
+}
 
-fun task3(): String {
-    todoTask3()
-//    return (foo("a") +
-//            foo("b", number = 1) +
-//            foo("c", toUpperCase = true) +
-//            foo(name = "d", number = 2, toUpperCase = true))
+fun task3(name: String = "a42b1C42D"): String {
+
+    return foo(name);
 }
