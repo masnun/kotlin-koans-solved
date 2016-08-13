@@ -1,5 +1,7 @@
 package ii_collections
 
+import java.util.*
+
 fun example9() {
     val result = listOf(1, 2, 3, 4).fold(1, { partResult, element -> element * partResult })
     result == 24
@@ -8,14 +10,16 @@ fun example9() {
 // The same as
 fun whatFoldDoes(): Int {
     var result = 1
-    listOf(1, 2, 3, 4).forEach { element -> result = element * result}
+    listOf(1, 2, 3, 4).forEach { element -> result = element * result }
     return result
 }
 
 fun Shop.getSetOfProductsOrderedByEveryCustomer(): Set<Product> {
     // Return the set of products ordered by every customer
+
+
     return customers.fold(allOrderedProducts, {
         orderedByAll, customer ->
-        todoCollectionTask()
+        orderedByAll.intersect(customer.orderedProducts)
     })
 }
