@@ -19,3 +19,7 @@ fun todoTask26_(): Nothing = TODO(
 fun checkInRange(date: MyDate, first: MyDate, last: MyDate): Boolean {
     return date in DateRange(first, last)
 }
+
+infix operator fun DateRange.contains(date: MyDate): Boolean {
+    return date >=start && date <= endInclusive
+}
